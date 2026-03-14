@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: hotel-traveller-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install && npx prisma db push && npm run seed
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        value: file:./dev.db
+      - key: NODE_ENV
+        value: production

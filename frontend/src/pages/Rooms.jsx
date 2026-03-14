@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_BASE from '../config';
 import './Rooms.css';
 
 const Rooms = () => {
@@ -8,7 +9,7 @@ const Rooms = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:5001/api/rooms')
+    fetch(`${API_BASE}/api/rooms`)
       .then(res => res.json())
       .then(data => {
         setRooms(data);

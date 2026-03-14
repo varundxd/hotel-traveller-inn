@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import API_BASE from '../config';
 import './Checkout.css';
 
 const RAZORPAY_KEY_ID = 'rzp_test_demo123456789';
@@ -70,7 +71,7 @@ const Checkout = () => {
       const totalAmount = parseFloat(calculateTotal());
       
       // 1. Create booking in our backend
-      const bookingRes = await fetch('http://localhost:5001/api/bookings', {
+      const bookingRes = await fetch(`${API_BASE}/api/bookings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -87,7 +88,7 @@ const Checkout = () => {
       if (!bookingRes.ok) throw new Error(bookingData.error);
 
       // 2. Create Razorpay order
-      const orderRes = await fetch('http://localhost:5001/api/payment/create-order', {
+      const orderRes = await fetch(`${API_BASE}/api/payment/create-order`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -115,7 +116,7 @@ const Checkout = () => {
         handler: async function (response) {
           // 4. Verify payment
           try {
-            const verifyRes = await fetch('http://localhost:5001/api/payment/verify', {
+            const verifyRes = await fetch(`${API_BASE}/api/payment/verify`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -127,7 +128,7 @@ const Checkout = () => {
             const verifyData = await verifyRes.json();
             if (verifyData.verified) {
               // Update booking status
-              await fetch(`http://localhost:5001/api/bookings/${bookingData.id}/status`, {
+              await fetch(`${API_BASE}/api/bookings/${bookingData.id}/status`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: 'confirmed' })
