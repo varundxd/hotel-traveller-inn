@@ -7,6 +7,7 @@ dotenv.config();
 const roomRoutes = require('./routes/rooms');
 const bookingRoutes = require('./routes/bookings');
 const paymentRoutes = require('./routes/payment');
+const menuRoutes = require('./routes/menu');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use('/api/rooms', roomRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/payment', paymentRoutes);
+app.use('/api/menu', menuRoutes);
 
 // Health Check
 app.get('/api/health', (req, res) => {

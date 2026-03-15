@@ -1,38 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const scrollToBooking = () => {
+    setMenuOpen(false);
+    const el = document.getElementById('bookingModal');
+    if (el) {
+      el.classList.add('active');
+      document.getElementById('modal-form-content').style.display = 'block';
+      document.getElementById('modal-success').style.display = 'none';
+    }
+  };
 
   return (
-    <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="nav-container">
-        <Link to="/" className="brand">
-          <span className="brand-primary">Hotel</span>
-          <span className="brand-secondary">Traveller</span>
-        </Link>
-        
-        <nav className="nav-links">
-          <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
-          <Link to="/rooms" className={`nav-link ${location.pathname === '/rooms' ? 'active' : ''}`}>Rooms</Link>
-          <Link to="/restaurant" className={`nav-link ${location.pathname === '/restaurant' ? 'active' : ''}`}>Restaurant</Link>
-        </nav>
-        
-        <div className="nav-actions">
-          <Link to="/rooms" className="btn btn-primary">Book Now</Link>
-        </div>
+    <nav className="site-nav">
+      <div className="nav-logo">Hotel <span>Traveller Inn</span></div>
+      <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
+        <li><a href="#rooms" onClick={() => setMenuOpen(false)}>Rooms</a></li>
+        <li><a href="#restaurant" onClick={() => setMenuOpen(false)}>Restaurant</a></li>
+        <li><a href="#gallery" onClick={() => setMenuOpen(false)}>Gallery</a></li>
+        <li><a href="#places" onClick={() => setMenuOpen(false)}>Explore</a></li>
+        <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
+      </ul>
+      <button className="nav-book-btn" onClick={scrollToBooking}>Book Now</button>
+      <div className="hamburger" onClick={toggleMenu}>
+        <span></span><span></span><span></span>
       </div>
-    </header>
+    </nav>
   );
 };
 

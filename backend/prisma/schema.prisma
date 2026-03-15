@@ -13,18 +13,34 @@ model Room {
   description String
   price       Float
   image       String?
+  badge       String?
+  amenities   String?   // Comma-separated: "Free Wi-Fi,AC,TV"
+  capacity    Int       @default(2)
   bookings    Booking[]
 }
 
 model Booking {
-  id            Int      @id @default(autoincrement())
-  roomId        Int
-  room          Room     @relation(fields: [roomId], references: [id])
-  customerName  String
-  customerEmail String
-  checkIn       DateTime
-  checkOut      DateTime
-  totalAmount   Float
-  status        String   @default("pending") // pending, confirmed, cancelled
-  createdAt     DateTime @default(now())
+  id              Int      @id @default(autoincrement())
+  roomId          Int
+  room            Room     @relation(fields: [roomId], references: [id])
+  customerName    String
+  customerEmail   String
+  customerPhone   String   @default("")
+  checkIn         DateTime
+  checkOut        DateTime
+  adults          Int      @default(2)
+  children        Int      @default(0)
+  specialRequests String?
+  totalAmount     Float
+  status          String   @default("pending") // pending, confirmed, cancelled
+  createdAt       DateTime @default(now())
+}
+
+model MenuItem {
+  id          Int    @id @default(autoincrement())
+  category    String // breakfast, lunch, dinner, beverages, local
+  emoji       String
+  name        String
+  description String
+  price       String // e.g. "₹320"
 }

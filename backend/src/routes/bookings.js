@@ -6,15 +6,19 @@ const prisma = new PrismaClient();
 // Create a booking
 router.post('/', async (req, res) => {
   try {
-    const { roomId, customerName, customerEmail, checkIn, checkOut, totalAmount } = req.body;
+    const { roomId, customerName, customerEmail, customerPhone, checkIn, checkOut, adults, children, specialRequests, totalAmount } = req.body;
     
     const booking = await prisma.booking.create({
       data: {
         roomId: parseInt(roomId),
         customerName,
         customerEmail,
+        customerPhone: customerPhone || '',
         checkIn: new Date(checkIn),
         checkOut: new Date(checkOut),
+        adults: parseInt(adults) || 2,
+        children: parseInt(children) || 0,
+        specialRequests: specialRequests || null,
         totalAmount: parseFloat(totalAmount),
         status: 'pending'
       }

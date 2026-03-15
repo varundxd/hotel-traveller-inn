@@ -1,67 +1,72 @@
-.footer {
-  background-color: var(--secondary);
-  color: white;
-  padding: 4rem 2rem 1rem;
-  margin-top: auto;
+.site-footer {
+  background: var(--teal-dark);
+  padding: 3rem 2rem 1.5rem;
 }
 
-.footer-content {
-  max-width: 1280px;
+.footer-grid {
+  max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
-.footer-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  color: var(--primary);
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+.footer-logo span {
+  color: var(--teal-light);
+}
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  max-width: 260px;
+}
+
+.footer-col h4 {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   margin-bottom: 1rem;
+  font-family: 'DM Sans', sans-serif;
 }
-
-.footer-subtitle {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-  color: var(--accent);
-}
-
-.footer-desc {
-  color: #9ca3af;
-  line-height: 1.8;
-}
-
-.footer-links ul {
+.footer-col ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-
-.footer-links li {
-  margin-bottom: 0.75rem;
+.footer-col ul li a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
 }
-
-.footer-links a {
-  color: #9ca3af;
-  transition: var(--transition);
-}
-
-.footer-links a:hover {
-  color: var(--primary);
-  padding-left: 5px;
-}
-
-.footer-contact p {
-  color: #9ca3af;
-  margin-bottom: 0.5rem;
+.footer-col ul li a:hover {
+  color: var(--teal-light);
 }
 
 .footer-bottom {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.2rem;
   text-align: center;
-  color: #6b7280;
-  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.78rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }

@@ -1,99 +1,96 @@
-.navbar {
+.site-nav {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   z-index: 1000;
-  padding: 1.5rem 0;
-  transition: var(--transition);
-  background: transparent;
-}
-
-.navbar.scrolled {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 1rem 0;
-  box-shadow: var(--shadow-sm);
-  border-bottom: 1px solid var(--glass-border);
-}
-
-.nav-container {
-  max-width: 1280px;
-  margin: 0 auto;
+  background: rgba(8, 80, 65, 0.96);
+  backdrop-filter: blur(8px);
   padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 64px;
 }
 
-.brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.nav-logo span {
+  color: var(--teal-light);
 }
 
-.brand-primary {
-  font-weight: 700;
-  color: var(--primary);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.brand-secondary {
-  font-weight: 400;
-  font-size: 1rem;
-  color: var(--secondary);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-top: 2px;
-}
-
-.navbar.scrolled .brand-secondary {
-  color: var(--secondary);
-}
-
-/* Change link colors depending on home scroll state if desired, but simplified here */
 .nav-links {
   display: flex;
-  gap: 2.5rem;
+  gap: 1.8rem;
+  list-style: none;
 }
-
-.nav-link {
-  font-size: 0.95rem;
-  font-weight: 500;
+.nav-links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--secondary);
-  position: relative;
-  transition: var(--transition);
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: var(--teal-light);
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
+.nav-book-btn {
+  background: var(--teal-bright);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background 0.2s;
+}
+.nav-book-btn:hover {
+  background: var(--teal-mid);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.hamburger span {
+  width: 24px;
   height: 2px;
-  background-color: var(--primary);
-  transition: var(--transition);
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 100%;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--primary);
+  background: #fff;
+  border-radius: 2px;
 }
 
 @media (max-width: 768px) {
   .nav-links {
     display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: rgba(8, 80, 65, 0.98);
+    padding: 1rem 2rem;
+    gap: 1rem;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-book-btn {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
   }
 }
