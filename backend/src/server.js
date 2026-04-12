@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 
@@ -28,6 +29,12 @@ app.use('/api/menu', menuRoutes);
 // Health Check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Hotel Traveller Inn API is running' });
+});
+
+// Serve frontend static files
+app.use(express.static(path.join(__dirname, '../../frontend/dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
 });
 
 // Only listen when running locally (not on Vercel)

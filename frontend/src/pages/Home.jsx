@@ -49,24 +49,37 @@ const placesData = [
   { emoji: '🌄', name: 'Sattal — Seven Lakes', desc: 'A pristine cluster of seven interconnected freshwater lakes in dense forests of oak and pine. Ideal for kayaking and birdwatching.', dist: '25 km away', type: 'Lakes · Birdwatching', gradient: 'linear-gradient(135deg, #085041, #3B6D11)' },
 ];
 
-/* ─── Room SVGs ─── */
-const roomSvgs = [
-  <svg key="r1" className="svg-bg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#085041"/><rect x="0" y="120" width="400" height="80" fill="#04342C"/><polygon points="0,120 80,50 160,90 240,30 320,70 400,40 400,120" fill="#0F6E56"/><polygon points="0,120 60,80 120,100 200,60 280,85 350,65 400,80 400,120" fill="#1D9E75" opacity="0.5"/><rect x="150" y="100" width="100" height="70" fill="#085041" rx="2"/><rect x="170" y="110" width="25" height="30" fill="#0F6E56" rx="1"/><rect x="205" y="110" width="25" height="30" fill="#0F6E56" rx="1"/><rect x="160" y="90" width="80" height="12" fill="#0C447C" rx="2"/><circle cx="320" cy="35" r="18" fill="#F9F7F4" opacity="0.15"/><circle cx="320" cy="35" r="12" fill="#F9F7F4" opacity="0.15"/></svg>,
-  <svg key="r2" className="svg-bg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#0C447C"/><rect x="0" y="110" width="400" height="90" fill="#042C53"/><polygon points="0,110 100,40 200,75 300,20 400,55 400,110" fill="#185FA5"/><polygon points="0,110 70,75 150,90 230,55 310,80 400,65 400,110" fill="#378ADD" opacity="0.3"/><rect x="140" y="90" width="120" height="75" fill="#0C447C" rx="2"/><rect x="155" y="98" width="35" height="40" fill="#185FA5" rx="1"/><rect x="200" y="98" width="35" height="40" fill="#185FA5" rx="1"/><rect x="150" y="85" width="100" height="8" fill="#378ADD" rx="1" opacity="0.7"/><rect x="0" y="100" width="400" height="2" fill="#378ADD" opacity="0.2"/></svg>,
-  <svg key="r3" className="svg-bg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#1D9E75"/><rect x="0" y="115" width="400" height="85" fill="#085041"/><polygon points="0,115 120,30 220,80 320,15 400,60 400,115" fill="#0F6E56"/><polygon points="0,115 80,85 170,95 260,70 360,90 400,80 400,115" fill="#5DCAA5" opacity="0.25"/><rect x="120" y="85" width="160" height="85" fill="#085041" rx="3"/><rect x="135" y="95" width="55" height="45" fill="#0F6E56" rx="2"/><rect x="200" y="95" width="55" height="45" fill="#0F6E56" rx="2"/><rect x="130" y="78" width="140" height="10" fill="#1D9E75" rx="2"/><circle cx="70" cy="40" r="22" fill="#F9F7F4" opacity="0.1"/><circle cx="350" cy="50" r="16" fill="#F9F7F4" opacity="0.08"/></svg>,
-  <svg key="r4" className="svg-bg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#085041"/><polygon points="0,130 60,60 140,100 220,40 300,80 400,50 400,130" fill="#0F6E56"/><polygon points="0,130 80,100 160,115 240,85 320,105 400,90 400,130" fill="#5DCAA5" opacity="0.2"/><rect x="100" y="100" width="200" height="80" fill="#04342C" rx="3"/><rect x="110" y="108" width="50" height="35" fill="#085041" rx="2"/><rect x="175" y="108" width="50" height="35" fill="#085041" rx="2"/><rect x="240" y="108" width="45" height="35" fill="#085041" rx="2"/><rect x="110" y="97" width="175" height="8" fill="#1D9E75" rx="2"/></svg>,
+/* ─── Room Images ─── */
+const roomImages = [
+  '/images/rooms/standard-room.jpg',
+  '/images/rooms/deluxe-room.jpg',
+  '/images/rooms/premium-suite.jpg',
+  '/images/rooms/family-room.jpg',
 ];
 
-/* ─── Gallery SVGs ─── */
-const gallerySvgs = [
-  { label: 'Hotel Exterior', svg: <svg className="svg-bg" viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#0C447C"/><stop offset="1" stopColor="#085041"/></linearGradient></defs><rect width="600" height="320" fill="url(#g1)"/><polygon points="0,220 100,80 200,140 350,40 500,110 600,70 600,220" fill="#0F6E56"/><polygon points="0,220 80,160 180,180 300,130 450,165 600,145 600,220" fill="#1D9E75" opacity="0.4"/><rect x="0" y="220" width="600" height="100" fill="#04342C"/><rect x="220" y="170" width="160" height="120" fill="#085041" rx="3"/><rect x="230" y="180" width="60" height="50" fill="#0F6E56" rx="2"/><rect x="300" y="180" width="60" height="50" fill="#0F6E56" rx="2"/><rect x="220" y="160" width="160" height="15" fill="#1D9E75" rx="2"/><circle cx="80" cy="60" r="30" fill="#F9F7F4" opacity="0.1"/></svg> },
-  { label: 'Lobby', svg: <svg className="svg-bg" viewBox="0 0 400 156" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="156" fill="#0C447C"/><polygon points="0,100 80,30 180,70 280,20 400,60 400,100" fill="#185FA5"/><rect x="0" y="100" width="400" height="56" fill="#042C53"/><rect x="140" y="75" width="120" height="75" fill="#0C447C" rx="2"/><rect x="155" y="85" width="40" height="35" fill="#185FA5" rx="1"/><rect x="205" y="85" width="40" height="35" fill="#185FA5" rx="1"/></svg> },
-  { label: 'Bedroom', svg: <svg className="svg-bg" viewBox="0 0 200 156" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="156" fill="#085041"/><rect x="20" y="50" width="160" height="80" fill="#0F6E56" rx="4"/><rect x="30" y="60" width="65" height="40" fill="#085041" rx="2"/><rect x="105" y="60" width="65" height="40" fill="#085041" rx="2"/><rect x="80" y="55" width="40" height="12" fill="#1D9E75" rx="2"/></svg> },
-  { label: 'Mountain View', svg: <svg className="svg-bg" viewBox="0 0 200 156" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="156" fill="#1D9E75"/><rect x="0" y="100" width="200" height="56" fill="#085041"/><polygon points="0,100 40,50 90,70 140,35 200,60 200,100" fill="#0F6E56"/><rect x="70" y="85" width="60" height="65" fill="#085041" rx="2"/><rect x="78" y="92" width="20" height="28" fill="#0F6E56" rx="1"/><rect x="102" y="92" width="20" height="28" fill="#0F6E56" rx="1"/></svg> },
-  { label: 'Restaurant', svg: <svg className="svg-bg" viewBox="0 0 400 156" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="156" fill="#04342C"/><circle cx="60" cy="40" r="8" fill="#F9A825" opacity="0.9"/><circle cx="90" cy="45" r="5" fill="#F9A825" opacity="0.6"/><rect x="0" y="70" width="400" height="86" fill="#085041"/><rect x="50" y="55" width="300" height="100" fill="#0F6E56" rx="4"/><rect x="70" y="70" width="80" height="50" fill="#085041" rx="2"/><rect x="170" y="70" width="60" height="25" fill="#085041" rx="2"/><rect x="240" y="70" width="80" height="50" fill="#085041" rx="2"/></svg> },
-  { label: 'Sunrise View', svg: <svg className="svg-bg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#185FA5"/><stop offset="1" stopColor="#04342C"/></linearGradient></defs><rect width="400" height="220" fill="url(#g2)"/><circle cx="200" cy="100" r="60" fill="none" stroke="#378ADD" strokeWidth="1.5" opacity="0.3"/><circle cx="200" cy="100" r="40" fill="none" stroke="#5DCAA5" strokeWidth="1" opacity="0.3"/><polygon points="0,160 80,80 180,120 280,60 400,100 400,160" fill="#0F6E56" opacity="0.5"/></svg> },
-  { label: 'Suite Interior', svg: <svg className="svg-bg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#085041"/><rect x="30" y="60" width="340" height="130" fill="#0F6E56" rx="6"/><rect x="50" y="80" width="100" height="70" fill="#085041" rx="3"/><rect x="170" y="80" width="80" height="35" fill="#085041" rx="3"/><rect x="170" y="122" width="80" height="28" fill="#085041" rx="3"/><rect x="270" y="80" width="80" height="70" fill="#085041" rx="3"/><rect x="40" y="50" width="320" height="15" fill="#1D9E75" rx="3"/></svg> },
-  { label: 'Valley & Nainital', svg: <svg className="svg-bg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#0C447C"/><rect x="0" y="140" width="400" height="80" fill="#042C53"/><polygon points="0,140 60,60 140,95 220,40 310,80 400,55 400,140" fill="#185FA5"/><polygon points="0,140 40,110 120,120 220,95 310,115 400,100 400,140" fill="#378ADD" opacity="0.25"/><circle cx="320" cy="45" r="24" fill="#F9F7F4" opacity="0.12"/><rect x="30" y="150" width="40" height="60" fill="#0C447C" rx="2"/><rect x="90" y="145" width="50" height="65" fill="#0C447C" rx="2"/><rect x="160" y="138" width="60" height="72" fill="#0C447C" rx="2"/><rect x="240" y="142" width="50" height="68" fill="#0C447C" rx="2"/><rect x="310" y="148" width="60" height="62" fill="#0C447C" rx="2"/></svg> },
+/* ─── Gallery Data ─── */
+const galleryData = [
+  { label: 'Night Corridor', src: '/images/gallery/corridor-night.jpg' },
+  { label: 'Hotel Corridor', src: '/images/gallery/corridor-1.jpg' },
+  { label: 'Lobby Entrance', src: '/images/gallery/corridor-2.jpg' },
+  { label: 'Standard Room', src: '/images/rooms/standard-room.jpg' },
+  { label: 'Deluxe Suite', src: '/images/rooms/deluxe-room-2.jpg' },
+  { label: 'Deluxe Balcony View', src: '/images/rooms/deluxe-balcony.jpg' },
+  { label: 'Deluxe Wide View', src: '/images/rooms/deluxe-room-3.jpg' },
+  { label: 'Premium Suite', src: '/images/rooms/premium-suite.jpg' },
+  { label: 'Premium Suite View', src: '/images/rooms/premium-suite-2.jpg' },
+  { label: 'Family Room', src: '/images/rooms/family-room.jpg' },
+  { label: 'Room Interior', src: '/images/rooms/family-room-2.jpg' },
+  { label: 'Cozy Mountain Room', src: '/images/rooms/standard-room-2.jpg' },
+  { label: 'Valley View Room', src: '/images/rooms/standard-room-3.jpg' },
+  { label: 'Comfort Room', src: '/images/rooms/standard-room-5.jpg' },
+  { label: 'Premium Balcony Suite', src: '/images/rooms/premium-suite-4.jpg' },
+  { label: 'Rustic Suite', src: '/images/rooms/premium-suite-5.jpg' },
+  { label: 'Executive Suite', src: '/images/rooms/premium-suite-6.jpg' },
+  { label: 'Suite — Daylight', src: '/images/rooms/premium-suite-day.jpg' },
+  { label: 'Suite — Morning View', src: '/images/rooms/premium-suite-day-2.jpg' },
+  { label: 'Countryside Room', src: '/images/rooms/standard-room-6.jpg' },
+  { label: 'Bathroom', src: '/images/gallery/bathroom.jpg' },
 ];
 
 const Home = () => {
@@ -247,7 +260,7 @@ const Home = () => {
           ]).map((room, idx) => (
             <div className="room-card" key={room.id}>
               <div className="room-img">
-                <div className="room-img-bg">{roomSvgs[idx] || roomSvgs[0]}</div>
+                <img src={roomImages[idx] || roomImages[0]} alt={room.name} className="room-photo" loading="lazy" />
                 <span className="room-badge">{room.badge}</span>
               </div>
               <div className="room-body">
@@ -401,9 +414,9 @@ const Home = () => {
           <p>Mountain mornings, warm evenings, and memories that last a lifetime.</p>
         </div>
         <div className="gallery-grid">
-          {gallerySvgs.map((item, idx) => (
+          {galleryData.map((item, idx) => (
             <div className="gallery-item" key={idx}>
-              {item.svg}
+              <img src={item.src} alt={item.label} className="gallery-photo" loading="lazy" />
               <div className="gallery-overlay"><span>{item.label}</span></div>
             </div>
           ))}
